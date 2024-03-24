@@ -30,16 +30,40 @@ const reducer: FrameReducer<State> = (state, action) => {
 };
 
 function getFrameImage(activePage: string, inputText?: string) {
-  switch (activePage) {
-    case "1":
-      return <FrameImage src="https://feyyum-web.vercel.app/ibrahim_tatlisesi_tehdit_etti_yemin_olsun_ben_bu_kani_dokecegim_1674967086_421.jpeg" />
-    case "2":
-      return <FrameImage aspectRatio="1.91:1"><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>İbrahim Tatlısese mesajın: {inputText}</div></FrameImage>
-    case "3":
-      return <FrameImage src="https://feyyum-web.vercel.app/ibrahim_tatlisesi_tehdit_etti_yemin_olsun_ben_bu_kani_dokecegim_1674967086_421.jpeg" />
-    default:
-      return null
+  let bullet = 3;
+  if(Math.floor(Math.random() * 6) + 1===bullet){
+    return <FrameImage src="https://media.istockphoto.com/id/482486999/photo/one-bullet-in-chamber-of-gun-as-in-russian-roulette.jpg?s=612x612&w=0&k=20&c=pHmUMdRlzw360lBH5VEarLuK2Q8qEyWNRe8IesUP8us=" />
   }
+  else{
+    return <FrameImage src="https://media.istockphoto.com/id/506430662/photo/gun-fire.jpg?s=612x612&w=0&k=20&c=SFoLEoFf0ORDFVx_16axduXFOsTvvh_Px1gmSCHdUUw=" />
+  }
+  // else if(Math.floor(Math.random() * 6) + 1===1){
+  //   return <FrameImage src="https://i.pinimg.com/originals/1c/22/4e/1c224efc37f29e04760a7ba59e216c0e.jpg" />
+  // }
+  // else if(Math.floor(Math.random() * 6) + 1===2){
+  //   return <FrameImage src="https://i.pinimg.com/originals/1c/22/4e/1c224efc37f29e04760a7ba59e216c0e.jpg" />
+  // }
+  // else if(Math.floor(Math.random() * 6) + 1===4){
+  //   return <FrameImage src="https://i.pinimg.com/originals/1c/22/4e/1c224efc37f29e04760a7ba59e216c0e.jpg" />
+  // }
+  // else if(Math.floor(Math.random() * 6) + 1===5){
+  //   return <FrameImage src="https://i.pinimg.com/originals/1c/22/4e/1c224efc37f29e04760a7ba59e216c0e.jpg" />
+  // }
+  // else if(Math.floor(Math.random() * 6) + 1===6){
+  //   return <FrameImage src="https://i.pinimg.com/originals/1c/22/4e/1c224efc37f29e04760a7ba59e216c0e.jpg" />
+  // }
+  
+
+  // switch (activePage) {
+  //   case "1":
+  //     return <FrameImage src="https://feyyum-web.vercel.app/ibrahim_tatlisesi_tehdit_etti_yemin_olsun_ben_bu_kani_dokecegim_1674967086_421.jpeg" />
+  //   case "2":
+  //     return <FrameImage aspectRatio="1.91:1"><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>İbrahim Tatlısese mesajın: {inputText}</div></FrameImage>
+  //   case "3":
+  //     return <FrameImage src="https://media.istockphoto.com/id/506430662/photo/gun-fire.jpg?s=612x612&w=0&k=20&c=SFoLEoFf0ORDFVx_16axduXFOsTvvh_Px1gmSCHdUUw=" />
+  //   default:
+  //     return null
+  // }
 }
 
 // This is a react server component only
@@ -87,53 +111,25 @@ export default async function Home({ searchParams }: NextServerPageProps) {
         previousFrame={previousFrame}
       >
         {getFrameImage(state?.active, frameMessage?.inputText)}
-        {/* <FrameImage aspectRatio="1.91:1">
-          <div tw="w-full h-full bg-slate-700 text-white justify-center items-center flex flex-col">
-            <div tw="flex flex-row">
-              {frameMessage?.inputText ? frameMessage.inputText : "Hello world"}
-            </div>
-            {frameMessage && (
-              <div tw="flex flex-col">
-                <div tw="flex">
-                  Requester is @{frameMessage.requesterUserData?.username}{" "}
-                </div>
-                <div tw="flex">
-                  Requester follows caster:{" "}
-                  {frameMessage.requesterFollowsCaster ? "true" : "false"}
-                </div>
-                <div tw="flex">
-                  Caster follows requester:{" "}
-                  {frameMessage.casterFollowsRequester ? "true" : "false"}
-                </div>
-                <div tw="flex">
-                  Requester liked cast:{" "}
-                  {frameMessage.likedCast ? "true" : "false"}
-                </div>
-                <div tw="flex">
-                  Requester recasted cast:{" "}
-                  {frameMessage.recastedCast ? "true" : "false"}
-                </div>
-              </div>
-            )}
-          </div>
-        </FrameImage> */}
-        <FrameInput text="put some text here" />
+       
+         
+        
         <FrameButton>
           {/* {state?.active === "1" ? "Active" : "Inactive"} */}
           Vay vay
         </FrameButton>
-        <FrameButton>
+        {/* <FrameButton>
           Vış Vış
-        </FrameButton>
-        <FrameButton>
+        </FrameButton> */}
+        {/* <FrameButton>
           Le le le
-        </FrameButton>
+        </FrameButton> */}
         {/* <FrameButton action="link" target={`https://www.google.com`}>
           External
         </FrameButton> */}
-        <FrameButton action="link" target={`https://www.youtube.com/watch?v=v5eBn099zmw`}>
+        {/* <FrameButton action="link" target={`https://www.youtube.com/watch?v=v5eBn099zmw`}>
           BAGLAMA!
-        </FrameButton>
+        </FrameButton> */}
       </FrameContainer>
     </div>
   );
